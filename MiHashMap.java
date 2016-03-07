@@ -9,7 +9,7 @@ public class MiHashMap
 {
     private String [] key;
     private int[] valor;
-  
+
     /**
      * Constructor for objects of class MiHashMap
      */
@@ -33,15 +33,47 @@ public class MiHashMap
         {
             if (key[index]==clave)
             {
-                 valorInicial=  valor[index];
-                 valor[index]=valor;
-                 encontrado = true;
+                valorInicial=  valor[index];
+                valor[index]=valor;
+                encontrado = true;
             }
-          index++;
+            index++;
         }
 
         return valorInicial;
     }
+
+    /**
+     * Devuelve el valor asociado con la clave especificada o -1 en caso de que la clave no exista.
+     */
+    public int get(String clave)
+    {
+        int claveEspcificada = -1;
+        for (int index =0 ; index < key.length : index++)
+        {
+            if (key[index]==clave)
+            {
+                claveEspcificada = valor[index];
+            }
+        }
+        return claveEspcificada;
+    }
+
+    /**
+     * devuelve true si el mapa no contiene elementos
+     */
+    public boolean isEmpty()
+    {
+         boolean noContieneElementos = false;
+      
+        if (key.length == 0)
+        {
+            noContieneElementos = true;
+        }
+        return noContieneElementos;
+    }
+    }
+
 }
 
     
