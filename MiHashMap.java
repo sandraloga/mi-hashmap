@@ -49,7 +49,7 @@ public class MiHashMap
     public int get(String clave)
     {
         int claveEspcificada = -1;
-        for (int index =0 ; index < key.length : index++)
+        for (int index =0 ; index < key.length ; index++)
         {
             if (key[index]==clave)
             {
@@ -64,14 +64,30 @@ public class MiHashMap
      */
     public boolean isEmpty()
     {
-         boolean noContieneElementos = false;
-      
+        boolean noContieneElementos = false;
+
         if (key.length == 0)
         {
             noContieneElementos = true;
         }
         return noContieneElementos;
     }
+
+    /**
+     *  devuelve el número de elementos del mapa.
+     */
+    public  int size()
+    {
+        return key.length();
+
+    }
+    /**
+     *  vacía el mapa
+     */
+    public boolean  clear()
+    {
+        valor = new int[0];
+        key = new String[0];
     }
 
 }
