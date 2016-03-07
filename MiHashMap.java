@@ -1,4 +1,4 @@
-
+import java.util.ArrayList;
 /**
  * Write a description of class MiHashMap here.
  * 
@@ -7,27 +7,41 @@
  */
 public class MiHashMap
 {
-    // instance variables - replace the example below with your own
-    private int x;
-
+    private String [] key;
+    private int[] valor;
+  
     /**
      * Constructor for objects of class MiHashMap
      */
     public MiHashMap()
     {
-        // initialise instance variables
-        x = 0;
+        valor = new int[0];
+        key = new String[0];
     }
 
     /**
-     * An example of a method - replace this comment with your own
-     * 
-     * @param  y   a sample parameter for a method
-     * @return     the sum of x and y 
-     */
-    public int sampleMethod(int y)
+     * Si la clave existía, entonces sobreescribe su valor y devuelve el valor antiguo. 
+     * Asocia el valor especificado con la clave especificada.
+     * Si no existía devuelve -1.
+     */ 
+    public int put(String clave, int valor)
     {
-        // put your code here
-        return x + y;
+        int valorInicial =-1;
+        boolean encontrado = false;
+        int index = 0;
+        while (!encontrado && index < key.length)
+        {
+            if (key[index]==clave)
+            {
+                 valorInicial=  valor[index];
+                 valor[index]=valor;
+                 encontrado = true;
+            }
+          index++;
+        }
+
+        return valorInicial;
     }
 }
+
+    
