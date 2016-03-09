@@ -24,17 +24,17 @@ public class MiHashMap
      * Asocia el valor especificado con la clave especificada.
      * Si no existía devuelve -1.
      */ 
-    public int put(String clave, int valor)
+    public int put(String clave, int val)
     {
-        int valorInicial =-1;
+        int valorInicial = -1;
         boolean encontrado = false;
         int index = 0;
         while (!encontrado && index < key.length)
         {
-            if (key[index]==clave)
+            if (key[index].equals(clave))
             {
-                valorInicial=  valor[index];
-                valor[index]=valor;
+                valorInicial = valor[index];
+                valor[index]=val;
                 encontrado = true;
             }
             index++;
@@ -78,18 +78,48 @@ public class MiHashMap
      */
     public  int size()
     {
-        return key.length();
+        return key.length;
 
     }
+
+    /**
+     *  elimina del mapa el elemento con la clave dada y devuelve su valor.
+     *  Si no hay esa clave en el mapa devuelve -1.
+     */
+    public int remove(String clave)
+    {
+        int valorEliminado=-1;
+        for (int index = 0 ; index < key.length ; index++)
+        {
+            if(key[index].equals(clave))
+            {
+                String[] keyBis = new String[key.length-1];
+                int[] valorBis = new int[valor.length -1];
+                for (int i =0; i < key.length ; i++)
+                {
+                    valor[i] = valorBis[i];
+                    key[i] = keyBis[i];
+                }
+                for(int i = index ; i < key.length ; i++)
+                {
+                    valor[i] = valorBis[i+1];
+                    key[i] = keyBis[i+1]; 
+                }
+                valorEliminado = valor[index];
+            }
+           
+        }
+         return valorEliminado;
+    }
+
     /**
      *  vacía el mapa
      */
-    public boolean  clear()
+    public void  clear()
     {
         valor = new int[0];
         key = new String[0];
     }
 
-}
 
-    
+}
