@@ -107,9 +107,9 @@ public class MiHashMap
                 }
                 valorEliminado = valor[index];
             }
-           
+
         }
-         return valorEliminado;
+        return valorEliminado;
     }
 
     /**
@@ -120,8 +120,8 @@ public class MiHashMap
         valor = new int[0];
         key = new String[0];
     }
-    
-/**
+
+    /**
      * Devuelve true si el mapa contiene la clave dada
      */
     public boolean containsKey(String clave)
@@ -139,7 +139,24 @@ public class MiHashMap
         return claveEncontrada;
     }
 
+    /**
+     * Devuelve true si el mapa contiene el valor dado.
+     */
+    public boolean containsValue(int val)
+    {
+        int index =0;
+        boolean valorEncontrado = false;
+        while (!valorEncontrado && index < valor.length)
+        {
+            if ( val == valor[index])
+            {
+                valorEncontrado = true;
+            }
+            index++;
+        }
+        return valorEncontrado;
 
+    }
 
 
 
